@@ -1,0 +1,7 @@
+/* src/app/globals.css */
+@import "tailwindcss";
+
+body {
+  background-color: #05070a; /* Este es el azul oscuro de Duoplex */
+  color: #ffffff;
+}
