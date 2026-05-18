@@ -2,6 +2,24 @@
 @import "tailwindcss";
 
 body {
-  background-color: #05070a; /* Este es el azul oscuro de Duoplex */
+  background-color: #020611; /* Este es el azul oscuro de Duoplex */
   color: #ffffff;
+}
+
+@layer utilities {
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-down {
+    animation: fadeInDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0; /* Evita el parpadeo inicial antes de animar */
+  }
 }
