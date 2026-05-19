@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Experience() {
   const [activeExp, setActiveExp] = useState(0);
@@ -9,119 +10,144 @@ export default function Experience() {
       id: 0,
       empresa: "Plan TV",
       canal: "Canal 13",
-      logo: "/logos/canal13.png",
+      logo: "plantv.png",
       puesto: "Editor de Videos",
-      fecha: "Mayo 2023 — Septiembre 2025",
+      fecha: "Mayo 2023 — Actualidad",
       tareas: [
         "Edición de contenido dinámico para emisión nacional en el programa Plan TV.",
         "Gestión integral de post-producción visual bajo estándares de Artear.",
         "Coordinación de entregas y presupuestos para proyectos profesionales.",
       ],
       tools: [
-        { name: "Premiere Pro", icon: "/public/design/premiere.svg" },
-        { name: "After Effects", icon: "/public/design/after-effects.svg" },
+        { name: "Premiere Pro", icon: "premiere.svg" },
+        { name: "After Effects", icon: "after-effects.svg" },
+      ],
+    },
+    {
+      id: 1,
+      empresa: "Dev Academy",
+      canal: "Ficticio (Para probar)",
+      logo: "nextjs.svg",
+      puesto: "Full Stack Developer",
+      fecha: "Enero 2022 — Abril 2023",
+      tareas: [
+        "Desarrollo de interfaces modernas y escalables utilizando Next.js y Tailwind CSS.",
+        "Implementación de arquitecturas de backend robustas con NestJS y PostgreSQL.",
+        "Optimización de tiempos de carga y SEO para aplicaciones empresariales.",
+      ],
+      tools: [
+        { name: "Node.js", icon: "nodejs.svg" },
+        { name: "TypeScript", icon: "typescript.svg" },
+        { name: "PostgreSQL", icon: "postgresql.svg" },
       ],
     },
   ];
 
   return (
-    <section id="experiencia" className="w-full max-w-6xl pt-24 pb-40 px-10">
-      {/* Título */}
-      <div className="flex flex-col items-center text-center mb-20">
-        <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tighter uppercase italic overflow-visible px-10">
-          <span className="inline-block py-2 bg-gradient-to-r from-[#1e60ff] to-[#37f98a] bg-clip-text text-transparent">
-            EXPERIENCIA LABORAL
-          </span>
+    <section id="experiencia" className="w-full max-w-6xl py-32 px-10 mx-auto">
+      {/* Título Principal */}
+      <div className="flex flex-col items-center text-center mb-24">
+        <h2 className="text-5xl md:text-6xl font-black mb-4 tracking-tighter uppercase italic bg-gradient-to-r from-[#1e60ff] to-[#37f98a] bg-clip-text text-transparent">
+          EXPERIENCIA LABORAL
         </h2>
-        <div className="h-1.5 w-64 md:w-[450px] bg-gradient-to-r from-[#1e60ff] to-[#37f98a] rounded-full"></div>
+        <div className="h-1.5 w-72 md:w-[550px] bg-gradient-to-r from-[#1e60ff] to-[#37f98a] rounded-full"></div>
       </div>
 
-      {/* Selector y Contenido */}
-      <div className="flex flex-col md:flex-row items-start gap-10 md:gap-16 w-full">
-        {/* Selector de Empresa */}
-        <div className="flex md:flex-col gap-6 shrink-0">
+      {/* Contenedor Principal (Sidebar + Info) */}
+      <div className="flex flex-col md:flex-row gap-12 md:gap-24 items-stretch min-h-[450px]">
+        {/* SIDEBAR: Selector de Empresas */}
+        <div className="flex md:flex-col gap-6 shrink-0 justify-center md:justify-start">
           {experiencias.map((exp) => (
             <button
               key={exp.id}
               onClick={() => setActiveExp(exp.id)}
-              className="group relative w-36 h-36 md:w-40 md:h-40 flex flex-col items-center justify-center transition-all duration-300"
-            >
-              <div
-                className={`absolute inset-0 rounded-xl border transition-all duration-500 ${
+              className={`group relative w-32 h-32 md:w-44 md:h-44 flex flex-col items-center justify-center rounded-3xl transition-all duration-500 border-2
+                ${
                   activeExp === exp.id
-                    ? "border-[#1e60ff]/50 bg-white/[0.05]"
-                    : "border-transparent group-hover:border-white/10 group-hover:bg-white/[0.02]"
+                    ? "border-[#1e60ff] bg-white/[0.08] shadow-[0_0_40px_rgba(30,96,255,0.2)]"
+                    : "border-transparent bg-transparent hover:bg-white/[0.05] hover:border-white/10"
                 }`}
-              />
-
-              <div className="relative z-10 w-14 h-14 mb-3">
-                <img
-                  src={exp.logo}
-                  className={`w-full h-full object-contain transition-all duration-500 ${
-                    activeExp === exp.id
-                      ? "grayscale-0"
-                      : "grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-100"
-                  }`}
-                  alt="Logo"
+            >
+              {/* Contenedor del Logo */}
+              <div
+                className={`relative w-16 h-16 md:w-24 md:h-24 mb-3 transition-all duration-500
+                ${activeExp === exp.id ? "grayscale-0 scale-110" : "grayscale opacity-40 group-hover:opacity-100 group-hover:grayscale-0"}`}
+              >
+                {/* Redondeo aplicado directamente a la imagen */}
+                <Image
+                  src={`/logos/${exp.logo}`}
+                  alt={exp.empresa}
+                  fill
+                  className="object-cover rounded-2xl md:rounded-3xl"
                 />
               </div>
 
-              <div className="relative z-10 text-center px-2">
-                <h4 className="text-white font-black text-xs uppercase tracking-tight">
+              <div className="text-center">
+                <p
+                  className={`text-[10px] md:text-xs font-black uppercase tracking-widest transition-colors
+                  ${activeExp === exp.id ? "text-white" : "text-white/40 group-hover:text-white"}`}
+                >
                   {exp.empresa}
-                </h4>
-                <p className="text-[#37f98a] text-[8px] font-bold uppercase tracking-widest mt-1">
-                  {exp.canal}
                 </p>
               </div>
             </button>
           ))}
         </div>
 
-        {/* ÚNICA RAYA: Divisoria Vertical */}
-        <div className="hidden md:block w-[1px] bg-white/10 self-stretch"></div>
+        {/* DIVISOR VERTICAL */}
+        <div className="hidden md:block w-px bg-gradient-to-b from-transparent via-white/10 to-transparent"></div>
 
-        {/* Información del Puesto */}
-        <div className="flex-1 w-full pt-1">
-          <div key={activeExp} className="animate-in fade-in duration-500">
-            <div className="flex flex-row justify-between items-end mb-8 pb-4">
-              <h3 className="text-2xl md:text-3xl font-black italic uppercase leading-none bg-gradient-to-r from-[#1e60ff] to-[#37f98a] bg-clip-text text-transparent">
-                {experiencias[activeExp].puesto}
-              </h3>
-              <span className="text-white font-mono font-bold text-[10px] md:text-xs uppercase tracking-widest whitespace-nowrap ml-4">
-                {experiencias[activeExp].fecha}
-              </span>
+        {/* CONTENIDO: Información Detallada */}
+        <div className="flex-1">
+          <div
+            key={activeExp}
+            className="animate-in fade-in slide-in-from-right-8 duration-700"
+          >
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10">
+              <div>
+                <h3 className="text-3xl md:text-4xl font-black italic uppercase text-white mb-2">
+                  {experiencias[activeExp].puesto}
+                </h3>
+                <p className="text-[#37f98a] font-bold text-sm uppercase tracking-[0.2em]">
+                  {experiencias[activeExp].empresa}{" "}
+                  <span className="text-white/20 mx-2">|</span>{" "}
+                  {experiencias[activeExp].canal}
+                </p>
+              </div>
+              <div className="bg-white/5 px-4 py-2 rounded-full border border-white/10">
+                <span className="text-white/60 font-mono text-xs font-bold uppercase">
+                  {experiencias[activeExp].fecha}
+                </span>
+              </div>
             </div>
 
-            <ul className="space-y-5 w-full mb-12">
+            {/* Lista de Tareas */}
+            <ul className="space-y-6 mb-12">
               {experiencias[activeExp].tareas.map((tarea, i) => (
-                <li
-                  key={i}
-                  className="flex items-start gap-4 text-white text-sm md:text-base font-medium leading-relaxed"
-                >
-                  <span className="text-[#37f98a] mt-1.5 flex-shrink-0 text-[8px]">
-                    ◆
-                  </span>
-                  <p className="opacity-80">{tarea}</p>
+                <li key={i} className="flex items-start gap-5">
+                  <span className="w-2 h-2 mt-2 rounded-full bg-[#1e60ff] shadow-[0_0_10px_#1e60ff] shrink-0"></span>
+                  <p className="text-white/70 text-base md:text-lg leading-relaxed">
+                    {tarea}
+                  </p>
                 </li>
               ))}
             </ul>
 
-            {/* Herramientas con LOGOS (sin rayas raras) */}
-            <div className="flex flex-wrap gap-6 pt-2">
+            {/* Tecnologías Usadas */}
+            <div className="flex flex-wrap gap-4 pt-6 border-t border-white/5">
               {experiencias[activeExp].tools.map((tool, i) => (
                 <div
                   key={i}
-                  className="flex flex-col items-center gap-2 group/tool"
+                  className="flex items-center gap-3 bg-white/[0.03] border border-white/10 px-4 py-2 rounded-xl hover:border-[#37f98a]/50 transition-colors"
                 >
-                  <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-lg bg-white/5 border border-white/10 group-hover/tool:border-[#37f98a] transition-all duration-300">
-                    <img
-                      src={tool.icon}
-                      alt={tool.name}
-                      className="w-6 h-6 md:w-8 md:h-8 object-contain"
-                    />
-                  </div>
-                  <span className="text-[8px] font-bold uppercase text-white/40 group-hover/tool:text-white transition-colors">
+                  <Image
+                    src={`/logos/${tool.icon}`}
+                    width={20}
+                    height={20}
+                    alt={tool.name}
+                    className="object-contain"
+                  />
+                  <span className="text-white/40 text-[10px] font-bold uppercase tracking-tighter group-hover:text-white">
                     {tool.name}
                   </span>
                 </div>
