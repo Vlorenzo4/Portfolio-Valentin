@@ -12,7 +12,7 @@ export default function Experience() {
       canal: "Canal 13",
       logo: "plantv.png",
       puesto: "Editor de Videos",
-      fecha: "Mayo 2023 — Actualidad",
+      fecha: "Mayo 2023 — Sept 2025",
       tareas: [
         "Edición de contenido dinámico para emisión nacional en el programa Plan TV.",
         "Gestión integral de post-producción visual bajo estándares de Artear.",

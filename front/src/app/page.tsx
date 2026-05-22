@@ -1,4 +1,5 @@
 "use client";
+import Contact from "../components/Contact";
 import Experience from "../components/Experience";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
@@ -19,6 +20,8 @@ export default function Home() {
 
       {/* --- SECCIÓN PROYECTOS  --- */}
       <Projects />
+
+      <Contact />
 
       {/* FORMULARIO DE CONTACTO (FOOTER) */}
       <Footer />

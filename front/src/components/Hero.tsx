@@ -23,7 +23,8 @@ export default function Hero() {
         </p>
 
         <a
-          href="/tu-cv.pdf"
+          href="/CV-FULLSTACK - Valentin Lorenzo.pdf"
+          download
           className="px-10 py-4 bg-gradient-to-r from-[#1e60ff] to-[#37f98a] text-black font-black uppercase tracking-widest rounded-full hover:scale-105 transition-all shadow-[0_0_30px_rgba(30,96,255,0.2)]"
         >
           DESCARGAR CV

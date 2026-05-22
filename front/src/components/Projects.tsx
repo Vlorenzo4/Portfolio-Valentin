@@ -31,28 +31,25 @@ export default function Projects() {
             onClick={() => setProyectoSeleccionado(proyecto)}
             className="group cursor-pointer relative bg-white/[0.02] border border-white/10 rounded-[32px] overflow-hidden hover:border-[#1e60ff]/40 transition-all duration-300 flex flex-col p-6 pb-8 h-full justify-between"
           >
-            {/* Sector Superior: Fecha arriba y Título abajo */}
+            {/* Sector Superior: Fecha y Título */}
             <div className="w-full mb-6 px-2 flex flex-col gap-1.5">
-              {/* Fecha flotando limpia arriba como la referencia */}
-              <span className="text-white/100 font-mono font-bold text-xs tracking-wider uppercase">
+              <span className="text-white/40 font-mono font-bold text-xs tracking-wider uppercase">
                 {proyecto.anio}
               </span>
-
-              {/* Título ocupando el ancho fluido */}
               <h3 className="text-3xl font-black italic uppercase text-white tracking-tight group-hover:text-[#37f98a] transition-colors">
                 {proyecto.titulo}
               </h3>
             </div>
 
-            {/* Sector Inferior: Imagen alineada con mt-auto para fijar el nivel inferior */}
+            {/* Sector Inferior: Imagen alineada */}
             <div className="w-full mt-auto">
-              <div className="w-full aspect-[16/10] bg-[#0c0c0c] border border-white/5 rounded-2xl relative overflow-hidden flex items-center justify-center p-6 shadow-inner">
+              <div className="w-full aspect-[16/10] bg-[#0c0c0c] border border-white/5 rounded-[24px] relative overflow-hidden flex items-center justify-center p-4 shadow-inner">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#1e60ff]/10 to-[#37f98a]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
                 <Image
                   src={proyecto.imagen}
                   alt={proyecto.titulo}
                   fill
-                  className="object-cover p-6 rounded-xl filter grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 scale-100 group-hover:scale-[1.02]"
+                  className="object-cover rounded-[18px] filter grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 scale-100 group-hover:scale-[1.02]"
                 />
               </div>
             </div>
@@ -60,38 +57,36 @@ export default function Projects() {
         ))}
       </div>
 
-      {/* --- MODAL DE DETALLES: COPIA FIEL DE LA MAQUETA DE REFERENCIA --- */}
+      {/* --- MODAL DE DETALLES CORREGIDO --- */}
       {proyectoSeleccionado && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
-          {/* Fondo desenfocado */}
           <div
             className="absolute inset-0 bg-black/80 backdrop-blur-md"
             onClick={() => setProyectoSeleccionado(null)}
           ></div>
 
-          {/* CONTENEDOR PRINCIPAL: COLOR GRIS OSCURO BASE */}
+          {/* CONTENEDOR PRINCIPAL */}
           <div className="relative z-10 w-full max-w-[1240px] h-[90vh] md:h-[82vh] grid grid-cols-1 md:grid-cols-2 gap-6 p-6 bg-[#1a1a1a] border border-white/[0.05] rounded-[28px] animate-in zoom-in-95 duration-200">
-            {/* ================= TARJETA IZQUIERDA: IMAGEN LIMPIA ================= */}
+            {/* TARJETA IZQUIERDA: IMAGEN (Ajustada para que no se agrande) */}
             <div className="bg-[#121212] border border-white/[0.03] rounded-[20px] p-4 flex items-center justify-center relative overflow-hidden">
-              <div className="w-full h-full relative rounded-xl overflow-hidden aspect-[16/10] md:aspect-auto">
+              <div className="w-full h-full relative rounded-xl overflow-hidden">
                 <Image
                   src={proyectoSeleccionado.imagen}
                   alt={proyectoSeleccionado.titulo}
                   fill
-                  className="object-cover"
+                  /* CAMBIO CLAVE: object-contain para que se vea el 90-100% de la captura */
+                  className="object-contain rounded-lg"
                   priority
                 />
               </div>
             </div>
 
-            {/* ================= TARJETA DERECHA: GRID VERTICAL DE CAJAS SUB-GRIDS ================= */}
+            {/* TARJETA DERECHA: INFO */}
             <div className="grid grid-rows-[auto_auto_1fr_auto] gap-4 overflow-hidden">
-              {/* SUB-GRID 1: CAJA INDEPENDIENTE PARA EL TÍTULO Y CERRAR */}
               <div className="grid grid-cols-[1fr_auto] items-center gap-4 bg-[#222222] border border-white/[0.04] p-5 rounded-[18px]">
                 <h3 className="text-xl md:text-2xl font-black uppercase text-white tracking-tight italic select-none">
                   {proyectoSeleccionado.titulo}
                 </h3>
-                {/* Único botón superior: Cerrar modal */}
                 <button
                   onClick={() => setProyectoSeleccionado(null)}
                   className="w-10 h-10 flex items-center justify-center rounded-xl bg-[#1a1a1a] border border-white/10 text-white/60 hover:bg-red-500/10 hover:border-red-500/30 hover:text-red-400 transition-all font-bold"
@@ -100,30 +95,25 @@ export default function Projects() {
                 </button>
               </div>
 
-              {/* SUB-GRID 2: CAJA INDEPENDIENTE PARA METADATA (AÑO Y TECNOLOGÍAS) */}
               <div className="grid grid-cols-[1fr_2.5fr] gap-4 bg-[#222222] border border-white/[0.04] p-5 rounded-[18px]">
-                {/* Bloque Año */}
                 <div className="flex flex-col justify-center">
-                  <h4 className="text-[10px] uppercase tracking-wider font-extrabold text-white/80 mb-1 select-none">
+                  <h4 className="text-[10px] uppercase tracking-wider font-extrabold text-white/40 mb-1">
                     Año:
                   </h4>
-                  <span className="text-white/90 font-mono font-black text-sm">
+                  <span className="text-white/90 font-mono font-bold text-sm">
                     {proyectoSeleccionado.anio}
                   </span>
                 </div>
-
-                {/* Bloque Tecnologías */}
                 <div className="flex flex-col justify-center">
-                  <h4 className="text-[10px] uppercase tracking-wider font-extrabold text-white/80 mb-1 select-none">
-                    Tecnologías / Integraciones:
+                  <h4 className="text-[10px] uppercase tracking-wider font-extrabold text-white/40 mb-1">
+                    Tecnologías:
                   </h4>
-                  <div className="text-xs font-bold text-[#37f98a] tracking-wide leading-tight">
+                  <div className="text-xs font-bold text-[#37f98a]">
                     {proyectoSeleccionado.tags.join(", ")}
                   </div>
                 </div>
               </div>
 
-              {/* SUB-GRID 3: CAJA INDEPENDIENTE PARA EL TEXTO DE DESCRIPCIÓN */}
               <div className="bg-[#222222] border border-white/[0.04] p-6 rounded-[18px] overflow-hidden flex flex-col">
                 <div className="overflow-y-auto pr-2 h-full custom-scrollbar text-white/80 text-sm md:text-[15px] leading-relaxed font-medium">
                   <p className="whitespace-pre-line">
@@ -132,7 +122,6 @@ export default function Projects() {
                 </div>
               </div>
 
-              {/* SUB-GRID 4: CONTENEDOR DEL BOTÓN DE ACCIÓN ACCIONABLE */}
               <div className="w-full">
                 <a
                   href={proyectoSeleccionado.github}
@@ -148,7 +137,7 @@ export default function Projects() {
         </div>
       )}
 
-      {/* Barra de scroll azul */}
+      {/* Scrollbar CSS */}
       <style jsx global>{`
         .custom-scrollbar::-webkit-scrollbar {
           width: 5px;
