@@ -27,7 +27,7 @@ export default function Skills() {
     { name: "GitHub", color: "#ffffff", icon: "github.svg" },
     { name: "Docker", color: "#ffffff", icon: "docker.svg" },
     { name: "Copilot", color: "#ffffff", icon: "copilot.svg" },
-    { name: "Gemini", color: "#ffffff", icon: "Gemini.svg" },
+    { name: "Gemini", color: "#ffffff", icon: "gemini.svg" },
   ];
 
   return (
