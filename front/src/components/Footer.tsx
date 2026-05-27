@@ -25,7 +25,7 @@ export default function Footer() {
             GitHub
           </a>
           <a
-            href="https://linkedin.com/in/tu-usuario"
+            href="https://www.linkedin.com/in/valenlorenzo/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white/60 hover:text-[#37f98a] transition-colors"
@@ -33,7 +33,7 @@ export default function Footer() {
             LinkedIn
           </a>
           <a
-            href="mailto:tu-email@gmail.com"
+            href="mailto:valenvfx04@gmail.com"
             className="text-white/60 hover:text-white transition-colors"
           >
             Contacto
