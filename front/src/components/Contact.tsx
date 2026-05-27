@@ -9,7 +9,6 @@ export default function Contact() {
   const [mensaje, setMensaje] = useState("");
   const [cargando, setCargando] = useState(false);
 
-  // NUEVO ESTADO: Para controlar si mostramos el éxito
   const [enviado, setEnviado] = useState(false);
 
   const handleSubmit = (e: FormEvent) => {

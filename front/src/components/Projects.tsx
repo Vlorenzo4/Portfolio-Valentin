@@ -1,4 +1,3 @@
-// src/components/Projects.tsx
 "use client";
 import { useState } from "react";
 import Image from "next/image";
@@ -13,7 +12,6 @@ export default function Projects() {
       id="proyectos"
       className="w-full max-w-6xl py-24 px-10 flex flex-col items-center"
     >
-      {/* TÍTULO */}
       <div className="w-full flex flex-col items-center text-center">
         <h2 className="text-5xl md:text-6xl font-black mb-4 tracking-tighter uppercase italic overflow-visible select-none translate-x-2">
           <span className="inline-block py-2 pr-6 bg-gradient-to-r from-[#1e60ff] to-[#37f98a] bg-clip-text text-transparent overflow-visible">
@@ -23,7 +21,6 @@ export default function Projects() {
         <div className="h-1.5 w-[340px] md:w-[500px] bg-gradient-to-r from-[#1e60ff] to-[#37f98a] mb-20 rounded-full"></div>
       </div>
 
-      {/* GRILLA DE PROYECTOS */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full">
         {misProyectos.map((proyecto) => (
           <div
@@ -31,7 +28,6 @@ export default function Projects() {
             onClick={() => setProyectoSeleccionado(proyecto)}
             className="group cursor-pointer relative bg-white/[0.02] border border-white/10 rounded-[32px] overflow-hidden hover:border-[#1e60ff]/40 transition-all duration-300 flex flex-col p-6 pb-8 h-full justify-between"
           >
-            {/* Sector Superior: Fecha y Título */}
             <div className="w-full mb-6 px-2 flex flex-col gap-1.5">
               <span className="text-white/40 font-mono font-bold text-xs tracking-wider uppercase">
                 {proyecto.anio}
@@ -41,7 +37,6 @@ export default function Projects() {
               </h3>
             </div>
 
-            {/* Sector Inferior: Imagen alineada */}
             <div className="w-full mt-auto">
               <div className="w-full aspect-[16/10] bg-[#0c0c0c] border border-white/5 rounded-[24px] relative overflow-hidden flex items-center justify-center p-4 shadow-inner">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#1e60ff]/10 to-[#37f98a]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
@@ -57,7 +52,6 @@ export default function Projects() {
         ))}
       </div>
 
-      {/* --- MODAL DE DETALLES CORREGIDO --- */}
       {proyectoSeleccionado && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
           <div
@@ -65,23 +59,19 @@ export default function Projects() {
             onClick={() => setProyectoSeleccionado(null)}
           ></div>
 
-          {/* CONTENEDOR PRINCIPAL */}
           <div className="relative z-10 w-full max-w-[1240px] h-[90vh] md:h-[82vh] grid grid-cols-1 md:grid-cols-2 gap-6 p-6 bg-[#1a1a1a] border border-white/[0.05] rounded-[28px] animate-in zoom-in-95 duration-200">
-            {/* TARJETA IZQUIERDA: IMAGEN (Ajustada para que no se agrande) */}
             <div className="bg-[#121212] border border-white/[0.03] rounded-[20px] p-4 flex items-center justify-center relative overflow-hidden">
               <div className="w-full h-full relative rounded-xl overflow-hidden">
                 <Image
                   src={proyectoSeleccionado.imagen}
                   alt={proyectoSeleccionado.titulo}
                   fill
-                  /* CAMBIO CLAVE: object-contain para que se vea el 90-100% de la captura */
                   className="object-contain rounded-lg"
                   priority
                 />
               </div>
             </div>
 
-            {/* TARJETA DERECHA: INFO */}
             <div className="grid grid-rows-[auto_auto_1fr_auto] gap-4 overflow-hidden">
               <div className="grid grid-cols-[1fr_auto] items-center gap-4 bg-[#222222] border border-white/[0.04] p-5 rounded-[18px]">
                 <h3 className="text-xl md:text-2xl font-black uppercase text-white tracking-tight italic select-none">
@@ -137,7 +127,6 @@ export default function Projects() {
         </div>
       )}
 
-      {/* Scrollbar CSS */}
       <style jsx global>{`
         .custom-scrollbar::-webkit-scrollbar {
           width: 5px;

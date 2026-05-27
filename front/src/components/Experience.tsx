@@ -14,38 +14,22 @@ export default function Experience() {
       puesto: "Editor de Videos",
       fecha: "Mayo 2023 — Sept 2025",
       tareas: [
-        "Edición de contenido dinámico para emisión nacional en el programa Plan TV.",
-        "Gestión integral de post-producción visual bajo estándares de Artear.",
-        "Coordinación de entregas y presupuestos para proyectos profesionales.",
+        `Gestioné flujos de trabajo con tiempos de entrega innegociables para emisión nacional, una capacidad de
+respuesta que hoy traslado al cumplimiento de sprints y despliegues técnicos.
+`,
+        `Sistematicé la organización de grandes volúmenes de activos digitales, aplicando una lógica de orden y jerarquía
+que es la base de mi estructura de código actual.
+`,
       ],
       tools: [
         { name: "Premiere Pro", icon: "premiere.svg" },
         { name: "After Effects", icon: "after-effects.svg" },
       ],
     },
-    {
-      id: 1,
-      empresa: "Dev Academy",
-      canal: "Ficticio (Para probar)",
-      logo: "nextjs.svg",
-      puesto: "Full Stack Developer",
-      fecha: "Enero 2022 — Abril 2023",
-      tareas: [
-        "Desarrollo de interfaces modernas y escalables utilizando Next.js y Tailwind CSS.",
-        "Implementación de arquitecturas de backend robustas con NestJS y PostgreSQL.",
-        "Optimización de tiempos de carga y SEO para aplicaciones empresariales.",
-      ],
-      tools: [
-        { name: "Node.js", icon: "nodejs.svg" },
-        { name: "TypeScript", icon: "typescript.svg" },
-        { name: "PostgreSQL", icon: "postgresql.svg" },
-      ],
-    },
   ];
 
   return (
     <section id="experiencia" className="w-full max-w-6xl py-32 px-10 mx-auto">
-      {/* Título Principal */}
       <div className="flex flex-col items-center text-center mb-24">
         <h2 className="text-5xl md:text-6xl font-black mb-4 tracking-tighter uppercase italic bg-gradient-to-r from-[#1e60ff] to-[#37f98a] bg-clip-text text-transparent">
           EXPERIENCIA LABORAL
@@ -53,9 +37,7 @@ export default function Experience() {
         <div className="h-1.5 w-72 md:w-[550px] bg-gradient-to-r from-[#1e60ff] to-[#37f98a] rounded-full"></div>
       </div>
 
-      {/* Contenedor Principal (Sidebar + Info) */}
       <div className="flex flex-col md:flex-row gap-12 md:gap-24 items-stretch min-h-[450px]">
-        {/* SIDEBAR: Selector de Empresas */}
         <div className="flex md:flex-col gap-6 shrink-0 justify-center md:justify-start">
           {experiencias.map((exp) => (
             <button
@@ -68,12 +50,10 @@ export default function Experience() {
                     : "border-transparent bg-transparent hover:bg-white/[0.05] hover:border-white/10"
                 }`}
             >
-              {/* Contenedor del Logo */}
               <div
                 className={`relative w-16 h-16 md:w-24 md:h-24 mb-3 transition-all duration-500
                 ${activeExp === exp.id ? "grayscale-0 scale-110" : "grayscale opacity-40 group-hover:opacity-100 group-hover:grayscale-0"}`}
               >
-                {/* Redondeo aplicado directamente a la imagen */}
                 <Image
                   src={`/logos/${exp.logo}`}
                   alt={exp.empresa}
@@ -94,10 +74,8 @@ export default function Experience() {
           ))}
         </div>
 
-        {/* DIVISOR VERTICAL */}
         <div className="hidden md:block w-px bg-gradient-to-b from-transparent via-white/10 to-transparent"></div>
 
-        {/* CONTENIDO: Información Detallada */}
         <div className="flex-1">
           <div
             key={activeExp}
@@ -121,7 +99,6 @@ export default function Experience() {
               </div>
             </div>
 
-            {/* Lista de Tareas */}
             <ul className="space-y-6 mb-12">
               {experiencias[activeExp].tareas.map((tarea, i) => (
                 <li key={i} className="flex items-start gap-5">
@@ -133,7 +110,6 @@ export default function Experience() {
               ))}
             </ul>
 
-            {/* Tecnologías Usadas */}
             <div className="flex flex-wrap gap-4 pt-6 border-t border-white/5">
               {experiencias[activeExp].tools.map((tool, i) => (
                 <div

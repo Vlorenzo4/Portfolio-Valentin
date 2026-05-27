@@ -35,7 +35,6 @@ export default function Skills() {
       id="habilidades"
       className="w-full max-w-6xl py-24 px-10 flex flex-col items-center text-center"
     >
-      {/* Título con balanceo óptico */}
       <div className="w-full flex flex-col items-center text-center">
         <h2 className="text-5xl md:text-6xl font-black mb-4 tracking-tighter uppercase italic overflow-visible select-none translate-x-2">
           <span className="inline-block py-2 pr-6 bg-gradient-to-r from-[#1e60ff] to-[#37f98a] bg-clip-text text-transparent overflow-visible">
@@ -45,7 +44,6 @@ export default function Skills() {
         <div className="h-1.5 w-[340px] md:w-[500px] bg-gradient-to-r from-[#1e60ff] to-[#37f98a] mb-20 rounded-full"></div>
       </div>
 
-      {/* 1. CATEGORÍA FRONT END */}
       <div className="mb-20 w-full">
         <h3 className="text-2xl font-bold text-white/40 mb-12 uppercase tracking-[0.3em] italic">
           Front End
@@ -57,7 +55,6 @@ export default function Skills() {
         </div>
       </div>
 
-      {/* 2. CATEGORÍA BACK END */}
       <div className="mb-20 w-full">
         <h3 className="text-2xl font-bold text-white/40 mb-12 uppercase tracking-[0.3em] italic">
           Back End
@@ -69,7 +66,6 @@ export default function Skills() {
         </div>
       </div>
 
-      {/* 3. CATEGORÍA BASE DE DATOS */}
       <div className="mb-20 w-full">
         <h3 className="text-2xl font-bold text-white/40 mb-12 uppercase tracking-[0.3em] italic">
           Base de Datos
@@ -81,7 +77,6 @@ export default function Skills() {
         </div>
       </div>
 
-      {/* 4. CATEGORÍA HERRAMIENTAS & IA */}
       <div className="w-full">
         <h3 className="text-2xl font-bold text-white/40 mb-12 uppercase tracking-[0.3em] italic">
           Herramientas & IA

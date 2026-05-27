@@ -9,21 +9,16 @@ import Skills from "../components/Skills";
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#050505] text-white flex flex-col items-center w-full">
-      {/* --- SECCIÓN HERO --- */}
       <Hero />
 
-      {/* --- SECCIÓN PROYECTOS  --- */}
       <Projects />
 
-      {/* --- SECCIÓN HABILIDADES  --- */}
       <Skills />
 
-      {/* --- SECCIÓN EXPERIENCIA LABORAL  --- */}
       <Experience />
 
       <Contact />
 
-      {/* FORMULARIO DE CONTACTO (FOOTER) */}
       <Footer />
     </main>
   );

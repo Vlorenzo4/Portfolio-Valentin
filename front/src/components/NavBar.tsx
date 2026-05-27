@@ -5,10 +5,10 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
+    { label: "Proyectos", href: "#proyectos" },
     { label: "Habilidades", href: "#habilidades" },
     { label: "Experiencia Laboral", href: "#experiencia" },
-    { label: "Proyectos", href: "#proyectos" },
-    { label: "Contactame", href: "#contacto" }, // Apunta a #contacto
+    { label: "Contactame", href: "#contacto" },
   ];
 
   const handleScroll = (
@@ -25,9 +25,7 @@ export default function Navbar() {
   };
 
   return (
-    // Reducimos el ancho global a w-[240px] para que sea mucho más fino y sutil
     <div className="fixed top-6 right-6 z-[200] flex flex-col gap-2 w-[240px] font-sans select-none items-stretch">
-      {/* BOTÓN DE MENÚ (Cuando está cerrado) */}
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
@@ -43,7 +41,6 @@ export default function Navbar() {
         </button>
       )}
 
-      {/* BOTÓN DE CERRAR (Mismo ancho idéntico) */}
       {isOpen && (
         <button
           onClick={() => setIsOpen(false)}
@@ -56,11 +53,9 @@ export default function Navbar() {
         </button>
       )}
 
-      {/* LISTA DE OPCIONES CON ANIMACIÓN DE ARRIBA HACIA ABAJO */}
       {isOpen && (
         <div className="flex flex-col gap-2 w-full">
           {menuItems.map((item, index) => {
-            // Delays en línea usando style para asegurar que actúen uno tras otro sin fallas de compilación
             const delayTime = `${index * 100}ms`;
 
             return (
@@ -72,12 +67,10 @@ export default function Navbar() {
                 className="group w-full bg-white text-black h-14 rounded-[20px] px-4 flex items-center gap-3 shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-200
                   animate-fade-in-down"
               >
-                {/* Flechita sutil */}
                 <span className="text-sm font-black text-black/30 group-hover:text-black group-hover:translate-x-0.5 transition-all duration-200">
                   →
                 </span>
 
-                {/* Texto más chico y estilizado */}
                 <span className="font-black text-xs uppercase tracking-tight text-black/80 group-hover:text-black transition-colors">
                   {item.label}
                 </span>

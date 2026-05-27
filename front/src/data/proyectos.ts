@@ -61,6 +61,4 @@ export const misProyectos: Proyecto[] = [
     ],
     github: "https://github.com/Vlorenzo4/e-commerce",
   },
-  // Acá es donde vas a ir agregando los de masoterapia y otros,
-  // sin ensuciar el código visual.
 ];
