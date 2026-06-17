@@ -23,6 +23,7 @@ export default function Skills() {
   ];
 
   const toolsSkills = [
+    { name: "Claude Code", color: "#ffffff", icon: "claude-code.svg" },
     { name: "Git", color: "#ffffff", icon: "git.svg" },
     { name: "GitHub", color: "#ffffff", icon: "github.svg" },
     { name: "Docker", color: "#ffffff", icon: "docker.svg" },
