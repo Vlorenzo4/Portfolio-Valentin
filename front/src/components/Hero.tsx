@@ -25,6 +25,25 @@ export default function Hero() {
         >
           DESCARGAR CV
         </a>
+
+        <div className="flex flex-col sm:flex-row gap-4 mt-4">
+          <a
+            href="https://www.linkedin.com/in/valenlorenzo/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-48 py-4 text-center bg-gradient-to-r from-[#1e60ff] to-[#37f98a] text-black font-black uppercase tracking-widest rounded-full hover:scale-105 transition-all shadow-[0_0_30px_rgba(30,96,255,0.2)]"
+          >
+            LINKEDIN
+          </a>
+          <a
+            href="https://github.com/Vlorenzo4"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-48 py-4 text-center bg-gradient-to-r from-[#1e60ff] to-[#37f98a] text-black font-black uppercase tracking-widest rounded-full hover:scale-105 transition-all shadow-[0_0_30px_rgba(30,96,255,0.2)]"
+          >
+            GITHUB
+          </a>
+        </div>
       </div>
     </section>
   );
